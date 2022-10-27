@@ -1,52 +1,24 @@
-# Prerequisites
-*.d
+#include <stdio.h>//引入头文件
+#include <stdlib.h>//引入头文件
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+int main()//函数开始运行
+{
+    double a,b,c,s,S;//定义实数，包括小数
+    double p;//同上
+    printf("接下来请输入三角形的三条边的边长:\n");//给出提示
+    printf("请输入三角形的第一条边的边长:\n");//给出提示一
+    scanf("%lf",&a);//这是格式输入函数，输入实数
+    printf("请输入三角形的第二条边的边长:\n");//提示二
+    scanf("%lf",&b);//输入第二条边的边长
+    printf("请输入三角形的第三条边的边长:\n");//提示三
+    scanf("%lf",&c);//输入第三条边的边长
+    p = (a+b+c)/2;//运用海伦公式的p
+    s = (p*(p-a)*(p-b)*(p-c));//计算s，便于判断开根是否成立
+    S = sqrt(s);//海伦公式最后一步
+    if(S<=0)//双支判断输入三条边是否能组成三角形
 
-# Linker output
-*.ilk
-*.map
-*.exp
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+        printf("您输入的三角形边长构不成三角形");//输出错误的三边长度
+    else//剩余判断
+        printf("三角形面积为：%lf",S);//输出正确的三角形面积
+    return 0;//结束并返回0
+}
